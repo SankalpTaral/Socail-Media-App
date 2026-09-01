@@ -1,16 +1,15 @@
 import Button from '@mui/material/Button';
+import SocailApp from './components/SocailApp';
 /**
  
 
 */
 function App() {
   return (
-    <div>
-      <Button variant="contained"
-       sx={{ backgroundColor: "yellow", color: "black" }}
-       >Click Me</Button>
-      
-    </div>
+    <>
+      <h1>Social Media App</h1>   
+      <SocailApp/>
+    </>
   )
 }
 
