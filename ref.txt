@@ -1,0 +1,32 @@
+/**
+About-Mui  -> on High Level how it gets called 
+/**
+ * Using MUI Button component
+ *
+ * - Button is a pre-built component from Material UI
+ * - We import it and use it like a normal React component
+ *
+ * - Props:
+ *   variant="contained" → tells MUI what style to apply (filled button)
+ *   children → "Click Me" (content inside the button)
+ *
+ * - Internally:
+ *   MUI checks the variant value
+ *   → applies corresponding styles/classes
+ *   → renders a button with that styling
+ */
+
+ #2 Mui color by default it gets theme color so i see bg-blue
+ -  if i want to add as per custom color of my choice 
+ - then i need to follow some steps that steps would be 
+ <Button
+  variant="contained"
+  sx={{ backgroundColor: "yellow", color: "black" }}
+>
+  Click Me
+</Button>
+>
+
+ sx is MUI’s styling prop (use this most of the time)
+ sx -> apply custom styling directly to this component using MUI’s styling system
+ sx is not plain CSS, it’s CSS + MUI intelligence:

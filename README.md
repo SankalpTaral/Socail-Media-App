@@ -1,0 +1,7 @@
+- All the commands used to setup this project
+- `npm create vite@latest .` -> this setups vite project
+- `npm install`-> install all dependecies mentioned in package.json
+- `npm run dev`-> runs the react server 
+- `npm install @mui/material @emotion/react @emotion/styled`-> install material ui
+- `npm install @fontsource/roboto` -> install mui roboto font
+- `npm install @mui/icons-material` -> installed mui icons 
