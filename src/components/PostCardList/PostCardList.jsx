@@ -26,6 +26,7 @@ function PostCardList() {
                         title = {post.title}
                         content = {post.body}
                           image={`https://picsum.photos/500/300?random=${post.id}`}
+                          likeCount = {post.reactions.likes}
                          />
             }))}
         </>

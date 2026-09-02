@@ -8,12 +8,22 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderSharpIcon from '@mui/icons-material/FavoriteBorderSharp';
-import { useState } from "react";
+import FavoriteBorderSharpIcon from "@mui/icons-material/FavoriteBorderSharp";
+import { useState, useEffect } from "react";
 
-function PostCard({ title, content,image }) {
-
-  const[isLiked,setIsLiked] = useState(false);
+function PostCard({ title, content, image, likeCount }) {
+  const [isLiked, setIsLiked] = useState(false);
+  const [likes, setLikes] = useState(likeCount);
+  const handleLike = () => {
+    if (isLiked) {
+      setLikes((prev) => prev - 1);
+    } else {
+      setLikes((prev) => prev + 1);
+    }
+    setIsLiked(!isLiked);
+    // likes 192 + 1 isLiked=true
+    // likes 193 - 1 isLiked = false 
+  };
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -23,24 +33,26 @@ function PostCard({ title, content,image }) {
         title={title}
         subheader="September 14, 2016"
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image={image}
-        alt="Paella dish"
-      />
+      <CardMedia component="img" height="194" image={image} alt="Paella dish" />
       <CardContent>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {content}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites"  onClick ={()=>setIsLiked(!isLiked)} >
-          {isLiked=== false ? <FavoriteBorderSharpIcon /> 
-          :   
-          <FavoriteIcon  
-          sx = {{color:red[500]}}/>}
+        <IconButton
+          aria-label="add to favorites"
+          onClick={() => {
+            handleLike();
+          }}
+        >
+          {isLiked === false ? (
+            <FavoriteBorderSharpIcon />
+          ) : (
+            <FavoriteIcon sx={{ color: red[500] }} />
+          )}
         </IconButton>
+        {likes + " Likes "}
       </CardActions>
     </Card>
   );
