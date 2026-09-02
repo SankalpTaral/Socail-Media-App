@@ -1,12 +1,15 @@
-import PostCard from "./PostCard"
 
-
+import MainContainer from "./MainContainer/MainContainer.jsx"
+import Navbar from "./Navbar/Navbar.jsx"
 function SocailApp() {
   return (
-    <>
-    <PostCard/>
-    </>
+    <div>
+    <Navbar/>
+    <MainContainer/>
+    </div>
   )
 }
 
 export default SocailApp
+
+
