@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderSharpIcon from "@mui/icons-material/FavoriteBorderSharp";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 function PostCard({ title, content, image, likeCount }) {
   const [isLiked, setIsLiked] = useState(false);

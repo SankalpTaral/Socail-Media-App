@@ -5,16 +5,18 @@ import axios from "axios";
 
 function PostCardList() {
     const [posts , setPosts] = useState([]);
+    console.log("yp",posts);
     useEffect(()=>{
         console.log("Running effect");
-        axios.get("https://dummyjson.com/posts")
+        axios.get(import.meta.env.VITE_POST_API_KEY)
         .then((response)=>{
-            console.log(response.data.posts)
-            const responseObject = response.data.posts
-            setPosts([...responseObject]);
+            console.log(response)
+            const responseObject = response.data
+               setPosts([...responseObject]);
         })
         
     },[])
+    
 
     return (
         <>
@@ -24,9 +26,9 @@ function PostCardList() {
                         key = {post.id}
                         // content = {post.}
                         title = {post.title}
-                        content = {post.body}
-                          image={`https://picsum.photos/500/300?random=${post.id}`}
-                          likeCount = {post.reactions.likes}
+                        content = {post.content}
+                          image={post.image}
+                          likeCount = {post.likes}
                          />
             }))}
         </>

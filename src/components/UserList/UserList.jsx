@@ -8,12 +8,13 @@ import axios from "axios";
 
 export default function CheckboxListSecondary() {
   const [users, setUsers] = useState([]);
-
+  const userApiKey = import.meta.env.VITE_USERS_API_KEY
   useEffect(() => {
     axios
-      .get("https://dummyjson.com/users")
+      .get(userApiKey)
       .then((response) => {
-        setUsers(response.data.users); // ✅ store all users
+       console.log(userApiKey);
+        setUsers(response.data); // ✅ store all users
       })
       .catch((error) => {
         console.log(error);
@@ -34,12 +35,12 @@ export default function CheckboxListSecondary() {
                 <ListItemAvatar>
                   <Avatar
                     alt={user.firstName}
-                    src={user.image} // ✅ real image from API
+                    src={user.avatar} // ✅ real image from API
                   />
                 </ListItemAvatar>
 
                 <ListItemText
-                  primary={`${user.firstName} ${user.lastName}`} // ✅ real name
+                  primary={`${user.name}`} // ✅ real name
                 />
               </ListItemButton>
             );
