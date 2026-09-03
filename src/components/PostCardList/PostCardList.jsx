@@ -24,11 +24,11 @@ function PostCardList() {
             :(posts.map((post)=>{
                 return <PostCard
                         key = {post.id}
-                        // content = {post.}
                         title = {post.title}
                         content = {post.content}
-                          image={post.image}
-                          likeCount = {post.likes}
+                        image={post.image}
+                        likeCount = {post.likes}
+                        createdAt = {post.createdAt}
                          />
             }))}
         </>

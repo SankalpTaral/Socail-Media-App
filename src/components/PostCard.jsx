@@ -11,7 +11,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderSharpIcon from "@mui/icons-material/FavoriteBorderSharp";
 import { useState} from "react";
 
-function PostCard({ title, content, image, likeCount }) {
+function PostCard({ title, content, image, likeCount , createdAt }) {
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState(likeCount);
   const handleLike = () => {
@@ -31,7 +31,7 @@ function PostCard({ title, content, image, likeCount }) {
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>
         }
         title={title}
-        subheader="September 14, 2016"
+        subheader={createdAt}
       />
       <CardMedia component="img" height="194" image={image} alt="Paella dish" />
       <CardContent>
