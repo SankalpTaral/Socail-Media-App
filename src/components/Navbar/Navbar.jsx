@@ -5,14 +5,13 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-
 import MoreIcon from "@mui/icons-material/MoreVert";
 
 import {memo} from "react"
+import { Link } from "react-router-dom";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -67,6 +66,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
           >
             <MenuIcon />
           </IconButton>
+          <Link to ="/"
+            style={{ textDecoration: "none", color: "inherit" }}>
           <Typography
             variant="h6"
             noWrap
@@ -75,6 +76,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
           >
             Social App
           </Typography>
+          
+          </Link>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
