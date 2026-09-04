@@ -1,11 +1,11 @@
-import { useEffect,useState } from "react";
+import { useEffect,useContext } from "react";
 import PostCard from "../PostCard";
 import axios from "axios";
-
+import PostContext from "../../../Providers/PostContextProvider";
 
 function PostCardList() {
-    const [posts , setPosts] = useState([]);
-    console.log("yp",posts);
+    const {posts , setPosts} = useContext(PostContext);
+    console.log("context api postcardlist access",posts);
     useEffect(()=>{
         console.log("Running effect");
         axios.get(import.meta.env.VITE_POST_API_KEY)

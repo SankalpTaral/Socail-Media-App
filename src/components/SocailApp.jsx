@@ -1,17 +1,32 @@
+import MainContainer from "./MainContainer/MainContainer.jsx";
+import Navbar from "./Navbar/Navbar.jsx";
+import Input from "./Input/Input.jsx";
+import { useState,useEffect } from "react";
+import PostContext from "../../Providers/PostContextProvider.jsx";
+import axios from "axios";
 
-import MainContainer from "./MainContainer/MainContainer.jsx"
-import Navbar from "./Navbar/Navbar.jsx"
-import Input from "./Input/Input.jsx"
 function SocailApp() {
+  const [posts, setPosts] = useState([]);
+   useEffect(()=>{
+        console.log("Running effect");
+        axios.get(import.meta.env.VITE_POST_API_KEY)
+        .then((response)=>{
+            console.log(response)
+            const responseObject = response.data
+               setPosts([...responseObject]);
+        })
+        
+    },[])
+    
   return (
-    <div>
-    <Navbar/>
-    <Input/>
-    <MainContainer/>
-    </div>
-  )
+    <PostContext.Provider value={{ posts, setPosts }}>
+      <div>
+        <Navbar />
+        <Input />
+        <MainContainer />
+      </div>
+    </PostContext.Provider>
+  );
 }
 
-export default SocailApp
-
-
+export default SocailApp;
