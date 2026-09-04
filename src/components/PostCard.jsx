@@ -9,11 +9,13 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderSharpIcon from "@mui/icons-material/FavoriteBorderSharp";
-import { useState} from "react";
+import { useState,memo} from "react";
 
-function PostCard({ title, content, image, likeCount , createdAt }) {
+function PostCard({post}) {
+  const { title, content, image, likes, createdAt} = post
+
   const [isLiked, setIsLiked] = useState(false);
-  const [likes, setLikes] = useState(likeCount);
+  const [likess, setLikes] = useState(likes);
   const handleLike = () => {
     if (isLiked) {
       setLikes((prev) => prev - 1);
@@ -52,10 +54,10 @@ function PostCard({ title, content, image, likeCount , createdAt }) {
             <FavoriteIcon sx={{ color: red[500] }} />
           )}
         </IconButton>
-        {likes + " Likes "}
+        {likess + " Likes "}
       </CardActions>
     </Card>
   );
 }
 
-export default PostCard;
+export default memo(PostCard);

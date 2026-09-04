@@ -3,10 +3,11 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import { useEffect, useState } from "react";
+import { useEffect, useState,memo } from "react";
 import axios from "axios";
 
-export default function CheckboxListSecondary() {
+
+ function UserList() {
   const [users, setUsers] = useState([]);
   const userApiKey = import.meta.env.VITE_USERS_API_KEY
   useEffect(() => {
@@ -48,3 +49,4 @@ export default function CheckboxListSecondary() {
     </List>
   );
 }
+export default memo(UserList);

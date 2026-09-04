@@ -8,7 +8,6 @@ import axios from "axios";
 function SocailApp() {
   const [posts, setPosts] = useState([]);
    useEffect(()=>{
-        console.log("Running effect");
         axios.get(import.meta.env.VITE_POST_API_KEY)
         .then((response)=>{
             console.log(response)

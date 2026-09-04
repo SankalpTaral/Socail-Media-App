@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import LoadingButton from '@mui/lab/LoadingButton';
 
-import { useState,useContext } from "react";
+import { useState,useContext} from "react";
 import axios from "axios";
 import PostContext from "../../../Providers/PostContextProvider";
 
@@ -13,6 +13,7 @@ function Input() {
   const [loading , setLoading] = useState(false);
   const {posts , setPosts} = useContext(PostContext)
   
+
 
   async function createPost() {
   
@@ -33,7 +34,7 @@ function Input() {
         },
       );
 
-      console.log(response.data);
+
       setPosts([response.data,...posts])
     } catch (error) {
       console.error(error);
@@ -75,4 +76,3 @@ function Input() {
 
 export default Input;
 
-// thats hows it done tbh
