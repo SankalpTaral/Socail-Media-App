@@ -14,7 +14,6 @@ import axios from "axios";
     axios
       .get(userApiKey)
       .then((response) => {
-       console.log(userApiKey);
         setUsers(response.data); // ✅ store all users
       })
       .catch((error) => {

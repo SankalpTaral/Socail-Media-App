@@ -10,7 +10,6 @@ function SocailApp() {
    useEffect(()=>{
         axios.get(import.meta.env.VITE_POST_API_KEY)
         .then((response)=>{
-            console.log(response)
             const responseObject = response.data
                setPosts([...responseObject]);
         })
